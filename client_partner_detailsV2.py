@@ -16,11 +16,11 @@ dir = os.getcwd()
 dir = dir.strip()
 lib = '/etc/lib'
 
-os.chdir('/etc/lib/')
-import imp
-imp.load_source('sheet', '/etc/lib/')
+# os.chdir('/etc/lib/')
+# import imp
+# imp.load_source('sheet', '/etc/lib/')
 from sheet import *
-os.chdir(dir)
+# os.chdir(dir)
 
 def return_DOB_age(string):
 	string = " ".join(string.split())
