@@ -14,9 +14,9 @@ def hello():
 def echo():
 	aa = request.form['text']
     	aa = aa.strip()
-	os.chdir('/etc/lib')
+	os.chdir('../lib')
     	os.system('./client_partner_detailsV2.py "' + aa + '"')
-    	aa = os.popen('cat /etc/test2.json').read()
+    	aa = os.popen('cat ../lib/test2.json').read()
     	return aa
 
 if __name__ == "__main__":
