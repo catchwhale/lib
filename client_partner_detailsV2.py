@@ -336,7 +336,7 @@ def login(parameter):
 def ret_c_p_details(parameter):
 	global myRec
 	myRec = {}
-	P = Pool(processes=2)
+	P = Pool(processes=8)
 	jobs = []
 	URLs = []
 	# userids, uname, password = parameter
