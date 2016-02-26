@@ -8,8 +8,8 @@ from os import listdir
 import sys
 import re
 import mechanize
-# from bs4 import BeautifulSoup
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
+# from BeautifulSoup import BeautifulSoup
 from multiprocessing import Pool
 import gspread
 
