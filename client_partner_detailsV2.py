@@ -365,7 +365,7 @@ uname = "ross.corry"
 password = 'QPP2015b'
 parameter = userids, uname, password
 #os.chdir(lib)
-#init_json('test2.json')
+init_json('test2.json')
 #os.chdir(dir)
 ret_c_p_details(parameter)
 
