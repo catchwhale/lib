@@ -374,7 +374,9 @@ ret_c_p_details(parameter)
 #Writing to gsheet
 
 P = Pool(processes=8)
-jobs = read_json('test2.json')
+# jobs = read_json('test2.json')
+jobs = get_json_key_val('test2.json')
+jobs = jobs[1]
 key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
 sheet = access_sheet(key)
 
