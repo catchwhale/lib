@@ -13,9 +13,9 @@ import re
 import time
 import codecs
 import stat
-os.chdir('/etc/lib/')
+# os.chdir('/etc/lib/')
 from oauth2client.client import SignedJwtAssertionCredentials #sudo pip install python-gflags oauth2client
-os.chdir(dir)
+# os.chdir(dir)
 # Remove file
 def remove_file(filename):
 	if os.path.exists(filename):
@@ -24,22 +24,22 @@ def remove_file(filename):
 		print filename, 'does not exists.'
 # Create a file 
 def create_file(filename):
-	os.chdir(lib)
+	# os.chdir(lib)
 	return open(filename, 'w')
-	os.chdir(dir)
+	# os.chdir(dir)
 # Write file into local directory
 def write_append(filename, word):
-	os.chdir(lib)
+	# os.chdir(lib)
 	with open(filename, "a") as myfile:
 	    myfile.write(word + '\n')
 	# myfile.close()
-	os.chdir(dir)
+	# os.chdir(dir)
 # Read file into local directory and return the content
 def read_file(filename):
-	os.chdir(lib)
+	# os.chdir(lib)
 	data = open(filename, "r")
 	return data.readlines()
-	os.chdir(dir)
+	# os.chdir(dir)
 # Parse data and split ':' to return list
 def return_list(data):
 	lst = []
@@ -253,26 +253,26 @@ def calc_duration(number):
 
 # Update Json file but not sure if this can be use now 
 def write_json(filename, data):
-	os.chdir(lib)
+	# os.chdir(lib)
 	import codecs
 	with codecs.open(filename, 'a', 'utf8') as f:
 		f.write(json.dumps(data, f, sort_keys = True, ensure_ascii=False))
 		f.close()
-	os.chdir(dir)
+	# os.chdir(dir)
 # Read Json file and return as list
 def read_json(filename):
-	os.chdir(lib)
+	# os.chdir(lib)
 	with open(filename) as json_file:
 		json_data = json.load(json_file)
 	return list(json_data)
-	os.chdir(dir)
+	# os.chdir(dir)
 # Initial file and make it writable
 def init_json(filename):
-	os.chdir(lib)
+	# os.chdir(lib)
 	open(filename, 'w').close() 
 	st = os.stat(filename)
 	os.chmod(filename, st.st_mode | 0o111)
-	os.chdir(dir)
+	# os.chdir(dir)
 
 # Reading JSON file and append/update attribute accordingly
 def update_json(filename, attribute):
