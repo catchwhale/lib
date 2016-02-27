@@ -284,7 +284,7 @@ def update_json(filename, attribute):
 		data = {}
 	len_ = str(len(data.keys()))
 	data[len_] = attribute
-	print data
+	# print data
 	with open(filename, "w") as jsonFile:
 		jsonFile.write(json.dumps(data))
 # Reading JSON file and return keys and values accordingly
