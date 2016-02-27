@@ -303,16 +303,16 @@ def get_json_key_val(filename):
 	with open(filename, "r") as jsonFile:
 		data = json.load(jsonFile)
 		data = dict(data)
-	data_ = {}
-	cnt = 0
-	for i in data.values():
-		if re.search('list', str(type(i))):
-			for z in i:
-				data_[str(cnt)] = z
-				cnt += 1
-		else:
-			data_[str(cnt)] = i
-			cnt += 1
+	# data_ = {}
+	# cnt = 0
+	# for i in data.values():
+	# 	if re.search('list', str(type(i))):
+	# 		for z in i:
+	# 			data_[str(cnt)] = z
+	# 			cnt += 1
+	# 	else:
+	# 		data_[str(cnt)] = i
+	# 		cnt += 1
 	return data_.keys(), data_.values()
 
 
