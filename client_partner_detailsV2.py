@@ -353,6 +353,7 @@ nako = []
 hello = []
 try:
 	for i in jobs:
+		print i['worksheet']
 		if i['worksheet'] not in hello:
 			hello.append(i['worksheet'])
 		else:
