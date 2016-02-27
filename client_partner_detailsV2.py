@@ -284,6 +284,7 @@ def parse(parameter):
 		# 		data_.update(x)
 		# 	c_p_details(data_)
 		# 	remove_file('client_partner.json')
+		print '*' * 3
 		pass
 	# return myRec2
 
