@@ -267,26 +267,12 @@ def parse(parameter):
 			flag += 1
 			inc = 0
 	# return AssetTBL_all
-	key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
-	sheet = access_sheet(key)
-	jobs = []
+	# key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
+	# sheet = access_sheet(key)
+	# jobs = []
 	# pp = Pool(processes=4)
 	if AssetTBL_all:
-		# print AssetTBL_all
-		# print 'hello'
-		# for worksheet in  AssetTBL_all:
-			# print type(worksheet)
-			# print worksheet
-		# write_json('test2.json', AssetTBL_all)
-		update_json('test2.json', myRec2)
-			# parameter = sheet, worksheet
-			# update_sheet(parameter)
-			# write_append('naks2', str(parameter))
-			# jobs.append(parameter)
-		# print AssetTBL_all
-		# write_append('naks', str(AssetTBL_all))
-		# write_json('naks', AssetTBL_all)
-		# myRec2
+		update_json('test2.json', AssetTBL_all)
 		pass
 	if myRec2:
 		update_json('client_partner.json', myRec2)
@@ -360,20 +346,20 @@ ret_c_p_details(parameter)
 
 # #Writing to gsheet
 
-P = Pool(processes=8)
-# jobs = read_json('test2.json')
-jobs = get_json_key_val('test2.json')
-jobs = jobs[1]
-key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
-sheet = access_sheet(key)
+# P = Pool(processes=8)
+# # jobs = read_json('test2.json')
+# jobs = get_json_key_val('test2.json')
+# jobs = jobs[1]
+# key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
+# sheet = access_sheet(key)
 
-filename = 'record'
-create_file(filename)
+# filename = 'record'
+# create_file(filename)
 
-jobs = [(sheet, worksheet) for worksheet in jobs]
-P.map(update_sheet, jobs)
+# jobs = [(sheet, worksheet) for worksheet in jobs]
+# P.map(update_sheet, jobs)
 
-remove_file(filename)
+# remove_file(filename)
 
 
 #sudo kill -9 `ps -fA | grep helloflask | awk '{print $2}'`
