@@ -286,8 +286,15 @@ def update_json(filename, attribute):
 			data = json.load(jsonFile)
 	except:
 		data = {}
-	len_ = str(len(data.keys()))
-	data[len_] = attribute
+	myL = len(data.keys())
+	len_ = str(myL)
+	if re.search('list', str(type(attribute))):
+		cnt = myL
+		for i in attribute:
+			data[len_] = attribute
+			cnt += 1
+	else:
+		data[len_] = attribute
 	# print data
 	with open(filename, "w") as jsonFile:
 		jsonFile.write(json.dumps(data))

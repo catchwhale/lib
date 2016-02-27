@@ -337,43 +337,44 @@ userids = re.findall("\d+", userids)
 uname = "ross.corry"
 password = 'QPP2015b'
 parameter = userids, uname, password
-# init_json('test2.json')
-# init_json('client_partner.json')
-# ret_c_p_details(parameter)
+init_json('test2.json')
+init_json('client_partner.json')
+ret_c_p_details(parameter)
 
 
 # #Writing to gsheet
 
-P = Pool(processes=8)
-# jobs = read_json('test2.json')
-jobs = get_json_key_val('test2.json')
+# P = Pool(processes=8)
+# # jobs = read_json('test2.json')
+# jobs = get_json_key_val('test2.json')
 # jobs = jobs[1]
-global nako
-nako = []
-hello = []
-# print jobs
-try:
-	for i in jobs[1]:
-		print i
-		# print i['worksheet']
-		if i['worksheet'] not in hello:
-			hello.append(i['worksheet'])
-		else:
-			nako.append(i[worksheet])
-except:
-	pass
-# print nako
-sys.exit()
-key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
-sheet = access_sheet(key)
+# # global nako
+# # nako = []
+# # hello = []
+# # # print jobs
+# # try:
+# # 	for i in jobs:
+# # 		if re.search('dict', str(type(i))):
+# # 		# print i['worksheet']
+# # 			if i['worksheet'] not in hello:
+# # 				hello.append(i['worksheet'])
+# # 			else:
+# # 				nako.append(i[worksheet])
+		
+# # except:
+# # 	pass
+# # print nako
+# sys.exit()
+# key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
+# sheet = access_sheet(key)
 
-filename = 'record'
-create_file(filename)
+# filename = 'record'
+# create_file(filename)
 
-jobs = [(sheet, worksheet) for worksheet in jobs]
-P.map(update_sheet, jobs)
+# jobs = [(sheet, worksheet) for worksheet in jobs]
+# P.map(update_sheet, jobs)
 
-remove_file(filename)
+# remove_file(filename)
 
 
 #sudo kill -9 `ps -fA | grep helloflask | awk '{print $2}'`
