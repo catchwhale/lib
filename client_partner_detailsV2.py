@@ -85,18 +85,9 @@ def c_p_details(myRec):
 			# if null temporary put it as none
 			cPersonalDetails[i] = ''
 			pPersonalDetails[i] = ''
-	# worksheet_list = [cPersonalDetails, pPersonalDetails]
-	# for i in xrange(len(worksheet_list)):
-	# 	all_[i] = worksheet_list[i]
-		# print all_
-	# write_json('test2.json', cPersonalDetails)
-	# write_json('test2.json', ',')
-	# write_json('test2.json', pPersonalDetails)
 	update_json('test2.json', cPersonalDetails)
 	update_json('test2.json', pPersonalDetails)
-	# print cPersonalDetails
-	# print pPersonalDetails
-#def parse(br, URL):
+
 def parse(parameter):
 	# br, URL = parameter
 	myRec2 = {}
@@ -266,16 +257,6 @@ def parse(parameter):
 		if inc == myL:
 			flag += 1
 			inc = 0
-	# return AssetTBL_all
-	# key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
-	# sheet = access_sheet(key)
-	# jobs = []
-	# pp = Pool(processes=4)
-	# if AssetTBL_all:
-	# 	print AssetTBL_all
-	# 	print '*' * 5
-		# update_json('test2.json', AssetTBL_all)
-		# pass
 	if myRec2:
 		update_json('client_partner.json', myRec2)
 		len_ = get_json_key_val('client_partner.json')
@@ -285,7 +266,6 @@ def parse(parameter):
 				data_.update(x)
 			c_p_details(data_)
 			remove_file('client_partner.json')
-		# print '*' * 3
 		pass
 
 
@@ -350,23 +330,6 @@ ret_c_p_details(parameter)
 P = Pool(processes=8)
 jobs = get_json_key_val('test2.json')
 jobs = jobs[1]
-# global nako
-# nako = []
-# hello = []
-# # print jobs
-# try:
-# 	for i in jobs:
-# 		if re.search('dict', str(type(i))):
-# 		# print i['worksheet']
-# 			if i['worksheet'] not in hello:
-# 				hello.append(i['worksheet'])
-# 			else:
-# 				nako.append(i[worksheet])
-
-# except:
-# 	pass
-# print nako
-# sys.exit()
 key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
 sheet = access_sheet(key)
 

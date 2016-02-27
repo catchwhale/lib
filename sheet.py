@@ -288,12 +288,6 @@ def update_json(filename, attribute):
 		data = {}
 	myL = len(data.keys())
 	len_ = str(myL)
-	# if re.search('list', str(type(attribute))):
-	# 	cnt = myL
-	# 	for i in attribute:
-	# 		data[len_] = attribute
-	# 		cnt += 1
-	# else:
 	data[len_] = attribute
 	# print data
 	with open(filename, "w") as jsonFile:
@@ -303,16 +297,6 @@ def get_json_key_val(filename):
 	with open(filename, "r") as jsonFile:
 		data = json.load(jsonFile)
 		data = dict(data)
-	# data_ = {}
-	# cnt = 0
-	# for i in data.values():
-	# 	if re.search('list', str(type(i))):
-	# 		for z in i:
-	# 			data_[str(cnt)] = z
-	# 			cnt += 1
-	# 	else:
-	# 		data_[str(cnt)] = i
-	# 		cnt += 1
 	return data.keys(), data.values()
 
 
