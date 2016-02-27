@@ -360,7 +360,7 @@ try:
 			nako.append(i[worksheet])
 except:
 	pass
-print nako
+# print nako
 sys.exit()
 key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
 sheet = access_sheet(key)
