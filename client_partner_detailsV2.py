@@ -277,7 +277,8 @@ def parse(parameter):
 		# for worksheet in  AssetTBL_all:
 			# print type(worksheet)
 			# print worksheet
-		write_json('test2.json', AssetTBL_all)
+		# write_json('test2.json', AssetTBL_all)
+		update_json('test2.json', myRec2)
 			# parameter = sheet, worksheet
 			# update_sheet(parameter)
 			# write_append('naks2', str(parameter))
@@ -287,49 +288,15 @@ def parse(parameter):
 		# write_json('naks', AssetTBL_all)
 		# myRec2
 		pass
-
-		# return AssetTBL_all
-	# for i in AssetTBL_all:
-	# 	delay = 0.1
-	# 	parameter = delay, sheet, i
-	# 	update_sheet(parameter)
-	# 	print i
-	# jobs = []
 	if myRec2:
-		# for worksheet in myRec2:
-		# 	write_json('test.json', worksheet)
-		# 	parameter = sheet, worksheet
-		# 	jobs.append(parameter)
-		# P.map(update_sheet, jobs)
-		# print type(myRec2)
 		update_json('client_partner.json', myRec2)
 		len_ = get_json_key_val('client_partner.json')
-		# len_ = len_[0]
-		# print len_[0]
-		# print len_[1]
-		# print len(len_[0])
 		if len(len_[0]) == 3:
-
-		# 	data = get_json_key_val('client_partner.json')
-		# 	# data = data[1]
-		# 	print data[0]
 			data_ = {}
 			for x in len_[1]:
 				data_.update(x)
-			# print data_
 			c_p_details(data_)
 			remove_file('client_partner.json')
-		# myRec += myRec2
-		# print myRec
-		# c_p_details(myRec2)
-		# print '*' * 5
-		# return myRec2
-		# write_append('naks', str(myRec2))
-
-		# write_json('naks', myRec2)
-		# pass
-		# print '*' * 5
-		# return myRec
 	# return myRec2
 
 def login(parameter):
@@ -392,20 +359,20 @@ ret_c_p_details(parameter)
 
 # #Writing to gsheet
 
-P = Pool(processes=8)
-# jobs = read_json('test2.json')
-jobs = get_json_key_val('test2.json')
-jobs = jobs[1]
-key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
-sheet = access_sheet(key)
+# P = Pool(processes=8)
+# # jobs = read_json('test2.json')
+# jobs = get_json_key_val('test2.json')
+# jobs = jobs[1]
+# key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
+# sheet = access_sheet(key)
 
-filename = 'record'
-create_file(filename)
+# filename = 'record'
+# create_file(filename)
 
-jobs = [(sheet, worksheet) for worksheet in jobs]
-P.map(update_sheet, jobs)
+# jobs = [(sheet, worksheet) for worksheet in jobs]
+# P.map(update_sheet, jobs)
 
-remove_file(filename)
+# remove_file(filename)
 
 
 #sudo kill -9 `ps -fA | grep helloflask | awk '{print $2}'`
