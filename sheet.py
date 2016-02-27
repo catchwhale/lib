@@ -160,40 +160,42 @@ def update_sheet(parameter):
 	# sheet = access_sheet(key)
 	try:
 		mySheet = listWorksheet_val['worksheet'] # Get the worksheet 'cPersonalDetails'
-	except:
-		sys.exit()
-	# headers =  get_column_data(sheet, worksheetName, 1)
-	headers =  get_column_data(sheet, mySheet, 1)
-	x = find_empty_row(sheet, mySheet) # Find rows that are vacant/empty cells
-	
-	liquidate = read_file('record')
-	try:
-		liquidate = return_list(liquidate)
+	# except:
+	# 	sys.exit()
+		# headers =  get_column_data(sheet, worksheetName, 1)
+		headers =  get_column_data(sheet, mySheet, 1)
+		x = find_empty_row(sheet, mySheet) # Find rows that are vacant/empty cells
+		
+		liquidate = read_file('record')
+		try:
+			liquidate = return_list(liquidate)
+		except:
+			pass
+		tup = mySheet + ':' + str(x)
+		tup_ = (mySheet, str(x))
+		cnt = 0
+		for i in liquidate:
+			if i == tup_:
+				cnt += 1
+		tup = mySheet + ':' + str(x)
+		write_append('record', tup)
+		if cnt != 0:
+			x += cnt
+		y = 1 # initial column 1
+		for i in headers: # iterate headers 
+			text = listWorksheet_val[i] # write the value
+			# print type(text)
+			if re.search('str', str(type(text))) or re.search('unicode', str(type(text))): # if text type is string
+				updateSheet_x_y(sheet, mySheet, x, y, text) #start to update at worksheet cPersonalDetails
+			else:
+				cnt = 0
+				for z in text:
+					newX = x + cnt
+					cnt += 1
+					updateSheet_x_y(sheet, mySheet, newX, y, z) #start to update at worksheet cPersonalDetails
+			y += 1
 	except:
 		pass
-	tup = mySheet + ':' + str(x)
-	tup_ = (mySheet, str(x))
-	cnt = 0
-	for i in liquidate:
-		if i == tup_:
-			cnt += 1
-	tup = mySheet + ':' + str(x)
-	write_append('record', tup)
-	if cnt != 0:
-		x += cnt
-	y = 1 # initial column 1
-	for i in headers: # iterate headers 
-		text = listWorksheet_val[i] # write the value
-		# print type(text)
-		if re.search('str', str(type(text))) or re.search('unicode', str(type(text))): # if text type is string
-			updateSheet_x_y(sheet, mySheet, x, y, text) #start to update at worksheet cPersonalDetails
-		else:
-			cnt = 0
-			for z in text:
-				newX = x + cnt
-				cnt += 1
-				updateSheet_x_y(sheet, mySheet, newX, y, z) #start to update at worksheet cPersonalDetails
-		y += 1
 def div_data(parameter):
 	data = []
 	data2 = []
