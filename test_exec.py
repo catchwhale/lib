@@ -6,7 +6,10 @@ import sys
 # import pathos.multiprocessing as mp
 
 # P = Pool(processes=8)
-userid = '3417039'
+# userid = '3417039'
+userids = sys.argv[1]
+userids = re.findall("\d+", userids)
+
 username = 'ross.corry'
 password = 'QPP2015b'
 # username = 'cristeta.locara'
@@ -18,17 +21,18 @@ config = [ 'expense',
 		'income'
 		]
 worksheet_list = []
-engine = XPLANEngine (username=username,
-	                      password=password)
-engine.run()
-init_json('test2.json')
-for x in config:
-	engine.fetch(x, userid)
-# jobs = [(x, userid) for x in config]	
-# P = Pool(processes=4) 
-# P.map(engine.fetch, jobs)
+for userid in userids:
+	engine = XPLANEngine (username=username,
+		                      password=password)
+	engine.run()
+	init_json('test2.json')
+	for x in config:
+		engine.fetch(x, userid)
+	# jobs = [(x, userid) for x in config]	
+	# P = Pool(processes=4) 
+	# P.map(engine.fetch, jobs)
 
-engine.logout()
+	engine.logout()
 
 P = Pool(processes=8)
 jobs = get_json_key_val('test2.json')
