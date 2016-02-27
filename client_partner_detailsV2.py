@@ -347,7 +347,7 @@ parameter = userids, uname, password
 P = Pool(processes=8)
 # jobs = read_json('test2.json')
 jobs = get_json_key_val('test2.json')
-jobs = jobs[1]
+# jobs = jobs[1]
 global nako
 nako = []
 hello = []
