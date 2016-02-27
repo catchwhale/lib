@@ -301,14 +301,14 @@ def parse(parameter):
 		# 	parameter = sheet, worksheet
 		# 	jobs.append(parameter)
 		# P.map(update_sheet, jobs)
-		# print myRec2
-		update_json('client_partner.json', myRec2)
-		len_ = get_json_key_val('client_partner.json')
-		len_ = len_[0]
-		if len(len_) == 3:
-			data = get_json_key_val('client_partner.json')
-			# data = data[1]
-			print data[0]
+		print myRec2
+		# update_json('client_partner.json', myRec2)
+		# len_ = get_json_key_val('client_partner.json')
+		# len_ = len_[0]
+		# if len(len_) == 3:
+		# 	data = get_json_key_val('client_partner.json')
+		# 	# data = data[1]
+		# 	print data[0]
 			# data_ = {}
 			# for x in data:
 			# 	data_.update(x)
