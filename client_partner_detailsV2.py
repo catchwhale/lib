@@ -353,7 +353,7 @@ nako = []
 hello = []
 # print jobs
 try:
-	for i in jobs:
+	for i in jobs[1]:
 		print i
 		# print i['worksheet']
 		if i['worksheet'] not in hello:
