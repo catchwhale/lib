@@ -93,7 +93,7 @@ def c_p_details(myRec):
 	# write_json('test2.json', ',')
 	# write_json('test2.json', pPersonalDetails)
 	update_json('test2.json', cPersonalDetails)
-	update_json('test2.json', cPersonalDetails)
+	update_json('test2.json', pPersonalDetails)
 	# print cPersonalDetails
 	# print pPersonalDetails
 #def parse(br, URL):
