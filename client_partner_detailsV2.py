@@ -277,7 +277,7 @@ def parse(parameter):
 		# for worksheet in  AssetTBL_all:
 			# print type(worksheet)
 			# print worksheet
-		# write_json('test2.json', AssetTBL_all)
+		write_json('test2.json', AssetTBL_all)
 			# parameter = sheet, worksheet
 			# update_sheet(parameter)
 			# write_append('naks2', str(parameter))
