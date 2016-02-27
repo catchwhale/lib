@@ -308,7 +308,7 @@ def parse(parameter):
 		if len(len_) == 3:
 			data = get_json_key_val('client_partner.json')
 			data = data[1]
-			print data
+			print data.values()
 			data_ = {}
 			for x in data:
 				data_.update(x)
