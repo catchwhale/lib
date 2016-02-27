@@ -277,14 +277,14 @@ def parse(parameter):
 	if myRec2:
 		update_json('client_partner.json', myRec2)
 		len_ = get_json_key_val('client_partner.json')
-		print len_[1]
-		# if len(len_[0]) == 3:
-		# 	data_ = {}
-		# 	for x in len_[1]:
-		# 		data_.update(x)
-		# 	c_p_details(data_)
-		# 	remove_file('client_partner.json')
-		print '*' * 3
+		# print len_[1]
+		if len(len_[0]) == 4:
+			data_ = {}
+			for x in len_[1]:
+				data_.update(x)
+			c_p_details(data_)
+			remove_file('client_partner.json')
+		# print '*' * 3
 		# pass
 	# return myRec2
 
