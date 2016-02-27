@@ -313,6 +313,6 @@ def get_json_key_val(filename):
 	# 	else:
 	# 		data_[str(cnt)] = i
 	# 		cnt += 1
-	return data_.keys(), data_.values()
+	return data.keys(), data.values()
 
 
