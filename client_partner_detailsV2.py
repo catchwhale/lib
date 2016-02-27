@@ -277,7 +277,7 @@ def parse(parameter):
 	if myRec2:
 		update_json('client_partner.json', myRec2)
 		len_ = get_json_key_val('client_partner.json')
-		print len_[0]
+		print len_[1]
 		# if len(len_[0]) == 3:
 		# 	data_ = {}
 		# 	for x in len_[1]:
@@ -345,36 +345,36 @@ ret_c_p_details(parameter)
 
 # #Writing to gsheet
 
-P = Pool(processes=8)
-jobs = get_json_key_val('test2.json')
-jobs = jobs[1]
-# global nako
-# nako = []
-# hello = []
-# # print jobs
-# try:
-# 	for i in jobs:
-# 		if re.search('dict', str(type(i))):
-# 		# print i['worksheet']
-# 			if i['worksheet'] not in hello:
-# 				hello.append(i['worksheet'])
-# 			else:
-# 				nako.append(i[worksheet])
+# P = Pool(processes=8)
+# jobs = get_json_key_val('test2.json')
+# jobs = jobs[1]
+# # global nako
+# # nako = []
+# # hello = []
+# # # print jobs
+# # try:
+# # 	for i in jobs:
+# # 		if re.search('dict', str(type(i))):
+# # 		# print i['worksheet']
+# # 			if i['worksheet'] not in hello:
+# # 				hello.append(i['worksheet'])
+# # 			else:
+# # 				nako.append(i[worksheet])
 
-# except:
-# 	pass
-# print nako
-# sys.exit()
-key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
-sheet = access_sheet(key)
+# # except:
+# # 	pass
+# # print nako
+# # sys.exit()
+# key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
+# sheet = access_sheet(key)
 
-filename = 'record'
-create_file(filename)
+# filename = 'record'
+# create_file(filename)
 
-jobs = [(sheet, worksheet) for worksheet in jobs]
-P.map(update_sheet, jobs)
+# jobs = [(sheet, worksheet) for worksheet in jobs]
+# P.map(update_sheet, jobs)
 
-remove_file(filename)
+# remove_file(filename)
 
 
 #sudo kill -9 `ps -fA | grep helloflask | awk '{print $2}'`
