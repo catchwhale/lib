@@ -92,8 +92,8 @@ def c_p_details(myRec):
 	# write_json('test2.json', cPersonalDetails)
 	# write_json('test2.json', ',')
 	# write_json('test2.json', pPersonalDetails)
-	# update_json('test2.json', cPersonalDetails)
-	# update_json('test2.json', cPersonalDetails)
+	update_json('test2.json', cPersonalDetails)
+	update_json('test2.json', cPersonalDetails)
 	# print cPersonalDetails
 	# print pPersonalDetails
 #def parse(br, URL):
@@ -316,8 +316,8 @@ def parse(parameter):
 			data_ = {}
 			for x in len_[1]:
 				data_.update(x)
-			print data_
-			# c_p_details(data_)
+			# print data_
+			c_p_details(data_)
 			# remove_file('client_partner.json')
 		# myRec += myRec2
 		# print myRec
