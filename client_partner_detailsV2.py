@@ -273,6 +273,7 @@ def parse(parameter):
 	# pp = Pool(processes=4)
 	if AssetTBL_all:
 		# print AssetTBL_all
+		# print 'hello'
 		# for worksheet in  AssetTBL_all:
 			# print type(worksheet)
 			# print worksheet
@@ -300,7 +301,7 @@ def parse(parameter):
 		# 	parameter = sheet, worksheet
 		# 	jobs.append(parameter)
 		# P.map(update_sheet, jobs)
-		# print myRec2
+		print myRec2
 		# myRec += myRec2
 		# print myRec
 		c_p_details(myRec2)
