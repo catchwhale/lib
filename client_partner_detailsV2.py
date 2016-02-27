@@ -307,7 +307,7 @@ def parse(parameter):
 		# len_ = len_[0]
 		# print len(len_[0])
 		if len(len_[0]) == 3:
-			print len_[1]
+			print len_[1].values()
 		# 	data = get_json_key_val('client_partner.json')
 		# 	# data = data[1]
 		# 	print data[0]
