@@ -301,17 +301,17 @@ def parse(parameter):
 		# 	parameter = sheet, worksheet
 		# 	jobs.append(parameter)
 		# P.map(update_sheet, jobs)
-		# print myRec2
+		print myRec2
 		# myRec += myRec2
 		# print myRec
-		c_p_details(myRec2)
+		# c_p_details(myRec2)
 		# print '*' * 5
 		# return myRec2
 		# write_append('naks', str(myRec2))
 
 		# write_json('naks', myRec2)
 		pass
-		# print '*' * 5
+		print '*' * 5
 		# return myRec
 	# return myRec2
 
