@@ -291,6 +291,7 @@ def update_json(filename, attribute):
 def get_json_key_val(filename):
 	with open(filename, "r") as jsonFile:
 		data = json.load(jsonFile)
+		data = dict(data)
 	return data.keys(), data.values()
 
 
