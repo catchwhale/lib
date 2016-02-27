@@ -345,8 +345,8 @@ def ret_c_p_details(parameter):
 		userid = str(userid)
 		URLs_= [ "https://xplan.mlc.com.au/factfind/view/%s?role=client&page=main" % (userid),
 				"https://xplan.mlc.com.au/factfind/view/%s?role=client&page=estate" % (userid),
-				"https://xplan.mlc.com.au/factfind/view/%s?role=client&page=personal_habits" % (userid),
-				"https://xplan.mlc.com.au/factfind/view/%s?role=client&page=investment" % (userid)
+				"https://xplan.mlc.com.au/factfind/view/%s?role=client&page=personal_habits" % (userid)
+				# "https://xplan.mlc.com.au/factfind/view/%s?role=client&page=investment" % (userid)
 				]
 		for i in URLs_:
 			URLs.append(i)
