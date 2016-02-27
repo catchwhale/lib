@@ -285,7 +285,7 @@ def parse(parameter):
 		# 	c_p_details(data_)
 		# 	remove_file('client_partner.json')
 		print '*' * 3
-		pass
+		# pass
 	# return myRec2
 
 def login(parameter):
