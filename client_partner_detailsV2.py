@@ -318,7 +318,7 @@ def parse(parameter):
 				data_.update(x)
 			# print data_
 			c_p_details(data_)
-			# remove_file('client_partner.json')
+			remove_file('client_partner.json')
 		# myRec += myRec2
 		# print myRec
 		# c_p_details(myRec2)
