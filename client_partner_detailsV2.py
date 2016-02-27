@@ -305,12 +305,13 @@ def parse(parameter):
 		update_json('client_partner.json', myRec2)
 		len_ = get_json_key_val('client_partner.json')
 		# len_ = len_[0]
-		print len_[0]
-		print len_[1]
+		# print len_[0]
+		# print len_[1]
 		# print len(len_[0])
 		if len(len_[0]) == 3:
 			# print len_[1].values()
 			print 'hello'
+			print len_[1]
 		# 	data = get_json_key_val('client_partner.json')
 		# 	# data = data[1]
 		# 	print data[0]
