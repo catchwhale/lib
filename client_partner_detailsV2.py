@@ -92,10 +92,10 @@ def c_p_details(myRec):
 	# write_json('test2.json', cPersonalDetails)
 	# write_json('test2.json', ',')
 	# write_json('test2.json', pPersonalDetails)
-	update_json('test2.json', cPersonalDetails)
-	update_json('test2.json', cPersonalDetails)
-	# print cPersonalDetails
-	# print pPersonalDetails
+	# update_json('test2.json', cPersonalDetails)
+	# update_json('test2.json', cPersonalDetails)
+	print cPersonalDetails
+	print pPersonalDetails
 #def parse(br, URL):
 def parse(parameter):
 	# br, URL = parameter
@@ -301,7 +301,7 @@ def parse(parameter):
 		# 	parameter = sheet, worksheet
 		# 	jobs.append(parameter)
 		# P.map(update_sheet, jobs)
-		print myRec2
+		# print myRec2
 		# myRec += myRec2
 		# print myRec
 		# c_p_details(myRec2)
