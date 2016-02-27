@@ -304,7 +304,7 @@ def parse(parameter):
 		# print myRec2
 		# myRec += myRec2
 		# print myRec
-		# c_p_details(myRec2)
+		c_p_details(myRec2)
 		# print '*' * 5
 		# return myRec2
 		# write_append('naks', str(myRec2))
