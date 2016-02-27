@@ -351,9 +351,10 @@ jobs = jobs[1]
 global nako
 nako = []
 hello = []
-print jobs
+# print jobs
 try:
 	for i in jobs:
+		print i
 		# print i['worksheet']
 		if i['worksheet'] not in hello:
 			hello.append(i['worksheet'])
