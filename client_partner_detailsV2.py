@@ -307,12 +307,12 @@ def parse(parameter):
 		len_ = len_[0]
 		if len(len_) == 3:
 			data = get_json_key_val('client_partner.json')
-			data = data[1]
-			print data.values()
-			data_ = {}
-			for x in data:
-				data_.update(x)
-			c_p_details(data_)
+			# data = data[1]
+			print data[0]
+			# data_ = {}
+			# for x in data:
+			# 	data_.update(x)
+			# c_p_details(data_)
 			# remove_file('client_partner.json')
 		# myRec += myRec2
 		# print myRec
