@@ -272,21 +272,22 @@ def parse(parameter):
 	# jobs = []
 	# pp = Pool(processes=4)
 	if AssetTBL_all:
+		print AssetTBL_all
+		print '*' * 5
 		# update_json('test2.json', AssetTBL_all)
 		pass
 	if myRec2:
-		update_json('client_partner.json', myRec2)
-		len_ = get_json_key_val('client_partner.json')
-		# print len_[1]
-		if len(len_[0]) == 4:
-			data_ = {}
-			for x in len_[1]:
-				data_.update(x)
-			c_p_details(data_)
-			remove_file('client_partner.json')
-		# print '*' * 3
-		# pass
-	# return myRec2
+		# update_json('client_partner.json', myRec2)
+		# len_ = get_json_key_val('client_partner.json')
+		# if len(len_[0]) == 4:
+		# 	data_ = {}
+		# 	for x in len_[1]:
+		# 		data_.update(x)
+		# 	c_p_details(data_)
+		# 	remove_file('client_partner.json')
+		# # print '*' * 3
+		pass
+
 
 def login(parameter):
 	uname, password, URLs = parameter
