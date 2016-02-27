@@ -94,8 +94,8 @@ def c_p_details(myRec):
 	# write_json('test2.json', pPersonalDetails)
 	# update_json('test2.json', cPersonalDetails)
 	# update_json('test2.json', cPersonalDetails)
-	print cPersonalDetails
-	print pPersonalDetails
+	# print cPersonalDetails
+	# print pPersonalDetails
 #def parse(br, URL):
 def parse(parameter):
 	# br, URL = parameter
@@ -302,6 +302,17 @@ def parse(parameter):
 		# 	jobs.append(parameter)
 		# P.map(update_sheet, jobs)
 		print myRec2
+		update_json('client_partner.json', myRec2)
+		len_ = get_json_key_val('client_partner.json')
+		len_ = len_[0]
+		if len(len_) == 3:
+			data = get_json_key_val(f'client_partner.json')
+			data = data[1]
+			data_ = {}
+			for x in data:
+				data_.update(x)
+			c_p_details(data_)
+			# remove_file('client_partner.json')
 		# myRec += myRec2
 		# print myRec
 		# c_p_details(myRec2)
@@ -368,6 +379,7 @@ password = 'QPP2015b'
 parameter = userids, uname, password
 #os.chdir(lib)
 init_json('test2.json')
+init_json('client_partner.json')
 #os.chdir(dir)
 ret_c_p_details(parameter)
 
