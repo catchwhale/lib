@@ -158,8 +158,10 @@ def update_sheet(parameter):
 	sheet, listWorksheet_val = parameter
 	# key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
 	# sheet = access_sheet(key)
-
-	mySheet = listWorksheet_val['worksheet'] # Get the worksheet 'cPersonalDetails'
+	try:
+		mySheet = listWorksheet_val['worksheet'] # Get the worksheet 'cPersonalDetails'
+	except:
+		sys.exit()
 	# headers =  get_column_data(sheet, worksheetName, 1)
 	headers =  get_column_data(sheet, mySheet, 1)
 	x = find_empty_row(sheet, mySheet) # Find rows that are vacant/empty cells
