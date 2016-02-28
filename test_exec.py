@@ -22,12 +22,14 @@ config = [ 'expense',
 		'income'
 		]
 worksheet_list = []
-init_json('test2.json')
+
+init_json('test0.json')
 engine = XPLANEngine (username=username,
 	password=password)
 engine.run()
 for userid in userids:
 	if userid:
+		os.system('./client_partner_detailsV2.py ' + userid)
 		# engine = XPLANEngine (username=username,
 		# 	                      password=password)
 		# engine.run()
@@ -43,7 +45,7 @@ engine.logout()
 # count = multiprocessing.cpu_count()
 P = Pool(processes=8)
 
-jobs = get_json_key_val('test2.json')
+jobs = get_json_key_val('test0.json')
 jobs = jobs[1]
 key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
 sheet = access_sheet(key)

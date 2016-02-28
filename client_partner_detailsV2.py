@@ -86,8 +86,8 @@ def c_p_details(myRec):
 			# if null temporary put it as none
 			cPersonalDetails[i] = ''
 			pPersonalDetails[i] = ''
-	update_json('test2.json', cPersonalDetails)
-	update_json('test2.json', pPersonalDetails)
+	update_json('test0.json', cPersonalDetails)
+	update_json('test0.json', pPersonalDetails)
 
 def parse(parameter):
 	# br, URL = parameter
@@ -216,21 +216,21 @@ def parse(parameter):
 				AssetsTbl['Percentage'] = value 
 				AssetsTbl['Legend'] = ''
 				AssetTBL_all.append(AssetsTbl)
-				update_json('test2.json', AssetsTbl)
+				update_json('test0.json', AssetsTbl)
 				AssetsTbl = {'worksheet':'AssetsTbl'}
 			if flag == 1:
 				AssetsTbl_Entity1['Equity'] = all_data[inc]
 				AssetsTbl_Entity1['Percentage'] = value 
 				AssetsTbl_Entity1['Legend'] = ''
 				AssetTBL_all.append(AssetsTbl_Entity1)
-				update_json('test2.json', AssetsTbl_Entity1)
+				update_json('test0.json', AssetsTbl_Entity1)
 				AssetsTbl_Entity1 = {'worksheet':'AssetsTbl_Entity1'}
 			elif flag == 2:
 				AssetsTbl_Entity2['Equity'] = all_data[inc]
 				AssetsTbl_Entity2['Percentage'] = value
 				AssetsTbl_Entity2['Legend'] = ''
 				AssetTBL_all.append(AssetsTbl_Entity2)
-				update_json('test2.json', AssetsTbl_Entity2)
+				update_json('test0.json', AssetsTbl_Entity2)
 				AssetsTbl_Entity2 = {'worksheet':'AssetsTbl_Entity2'}				
 				# print all_data[inc], i[1			elif flag == 1:
 			elif flag == 3:
@@ -238,21 +238,21 @@ def parse(parameter):
 				AssetsTbl_Entity3['Percentage'] = value 
 				AssetsTbl_Entity3['Legend'] = ''
 				AssetTBL_all.append(AssetsTbl_Entity3)
-				update_json('test2.json', AssetsTbl_Entity3)
+				update_json('test0.json', AssetsTbl_Entity3)
 				AssetsTbl_Entity3 = {'worksheet':'AssetsTbl_Entity3'}
 			elif flag == 4:
 				AssetsTbl_Entity4['Equity'] = all_data[inc]
 				AssetsTbl_Entity4['Percentage'] = value 
 				AssetsTbl_Entity4['Legend'] = ''
 				AssetTBL_all.append(AssetsTbl_Entity4)
-				update_json('test2.json', AssetsTbl_Entity4)
+				update_json('test0.json', AssetsTbl_Entity4)
 				AssetsTbl_Entity4 = {'worksheet':'AssetsTbl_Entity4'}
 			elif flag == 5:
 				AssetsTbl_Entity5['Equity'] = all_data[inc]
 				AssetsTbl_Entity5['Percentage'] = value
 				AssetsTbl_Entity5['Legend'] = ''
 				AssetTBL_all.append(AssetsTbl_Entity5)
-				update_json('test2.json', AssetsTbl_Entity5)
+				update_json('test0.json', AssetsTbl_Entity5)
 				AssetsTbl_Entity4 = {'worksheet':'AssetsTbl_Entity5'}		
 		inc += 1
 		if inc == myL:
@@ -325,7 +325,7 @@ userids = re.findall("\d+", userids)
 uname = "ross.corry"
 password = 'QPP2015b'
 parameter = userids, uname, password
-init_json('test2.json')
+init_json('test0.json')
 init_json('client_partner.json')
 ret_c_p_details(parameter)
 
@@ -334,7 +334,7 @@ ret_c_p_details(parameter)
 count = multiprocessing.cpu_count()
 P = Pool(processes=count)
 # P = Pool(processes=8)
-jobs = get_json_key_val('test2.json')
+jobs = get_json_key_val('test0.json')
 jobs = jobs[1]
 key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
 sheet = access_sheet(key)
