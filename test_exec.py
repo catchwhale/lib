@@ -2,6 +2,7 @@ from engine import *
 from multiprocessing import Pool
 from sheet import *
 import sys
+import multiprocessing
 # from client_partner_details import *
 # import pathos.multiprocessing as mp
 
@@ -21,30 +22,37 @@ config = [ 'expense',
 		'income'
 		]
 worksheet_list = []
+init_json('test2.json')
+engine = XPLANEngine (username=username,
+	password=password)
+engine.run()
 for userid in userids:
-	engine = XPLANEngine (username=username,
-		                      password=password)
-	engine.run()
-	init_json('test2.json')
-	for x in config:
-		engine.fetch(x, userid)
-	# jobs = [(x, userid) for x in config]	
-	# P = Pool(processes=4) 
-	# P.map(engine.fetch, jobs)
+	if userid:
+		# engine = XPLANEngine (username=username,
+		# 	                      password=password)
+		# engine.run()
+		print '*' * 5, userid, '*'*5
+		for x in config:
+			engine.fetch(x, userid)
+	# 	# jobs = [(x, userid) for x in config]	
+	# 	# P = Pool(processes=4) 
+	# 	# P.map(engine.fetch, jobs)
 
-	engine.logout()
+engine.logout()
 
-P = Pool(processes=8)
-jobs = get_json_key_val('test2.json')
-jobs = jobs[1]
-key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
-sheet = access_sheet(key)
+# count = multiprocessing.cpu_count()
+# P = Pool(processes=count)
 
-filename = 'record'
-create_file(filename)
+# jobs = get_json_key_val('test2.json')
+# jobs = jobs[1]
+# key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
+# sheet = access_sheet(key)
 
-jobs = [(sheet, worksheet) for worksheet in jobs]
-P.map(update_sheet, jobs)
+# filename = 'record'
+# create_file(filename)
 
-remove_file(filename)
+# jobs = [(sheet, worksheet) for worksheet in jobs]
+# P.map(update_sheet, jobs)
+
+# remove_file(filename)
 	

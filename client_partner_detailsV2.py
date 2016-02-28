@@ -11,6 +11,7 @@ import mechanize
 from bs4 import BeautifulSoup
 # from BeautifulSoup import BeautifulSoup
 from multiprocessing import Pool
+import multiprocessing
 import gspread
 
 dir = os.getcwd()
@@ -283,7 +284,9 @@ def login(parameter):
 	br['userid'] = uname	#see what is the name of txt input in form
 	br['passwd'] = password
 	br.submit()
-	P = Pool(processes=8)
+	count = multiprocessing.cpu_count()
+	P = Pool(processes=count)
+	# pool = multiprocessing.Semaphore(multiprocessing.cpu_count()) 
 	P.map(parse, URLs)
 	return br
 
@@ -291,7 +294,9 @@ def login(parameter):
 def ret_c_p_details(parameter):
 	global myRec
 	myRec = {}
-	P = Pool(processes=8)
+	count = multiprocessing.cpu_count()
+	P = Pool(processes=count)
+	# P = Pool(processes=8)
 	jobs = []
 	URLs = []
 	# userids, uname, password = parameter
@@ -326,8 +331,9 @@ ret_c_p_details(parameter)
 
 
 #Writing to gsheet
-
-P = Pool(processes=8)
+count = multiprocessing.cpu_count()
+P = Pool(processes=count)
+# P = Pool(processes=8)
 jobs = get_json_key_val('test2.json')
 jobs = jobs[1]
 key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"

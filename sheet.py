@@ -292,6 +292,20 @@ def update_json(filename, attribute):
 	# print data
 	with open(filename, "w") as jsonFile:
 		jsonFile.write(json.dumps(data))
+# Reading JSON file and append/update attribute accordingly
+def update_json2(parameter):
+	filename, attribute = parameter
+	try:
+		with open(filename, "r") as jsonFile:
+			data = json.load(jsonFile)
+	except:
+		data = {}
+	myL = len(data.keys())
+	len_ = str(myL)
+	data[len_] = attribute
+	# print data
+	with open(filename, "w") as jsonFile:
+		jsonFile.write(json.dumps(data))
 # Reading JSON file and return keys and values accordingly
 def get_json_key_val(filename):
 	with open(filename, "r") as jsonFile:

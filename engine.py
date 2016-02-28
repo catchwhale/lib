@@ -12,6 +12,7 @@ import string
 
 from sheet import *
 from multiprocessing import Pool
+import multiprocessing
 # import multiprocessing
 # import pathos.multiprocessing as mp
 ## git clone https://github.com/uqfoundation/pathos # Install as prerequisite
@@ -100,96 +101,88 @@ class XPLANEngine ():
         # return self.fetch ()
 
     def fetch (self, key, userid):
-        # key = attri = config; i.e. dependent
-        # print self.cookies
         attr = self.xpland[key]['attr']
-        # print 'attr',attr
-        # print key
-
         self.parser = xparser.XPLANParser (attr=attr,
                                            config=key)
-  #       # View factfind URL
+        # View factfind URL
         self.request_ = settings.XPLANRequest (userid=userid)
-        # print self.request_
-        url = self.request_.get_url_ ('view')
-        # print 'url', url
-        r = self.br.open (url)
+        try:
+            url = self.request_.get_url_ ('view')
+            r = self.br.open (url)
 
-  #       # Click link
-        link = self.xpland [key]['link']
-  #       # print link
-        response = self.br.follow_link (text_regex=re.compile (link))
-  #       # print response
-        url = response.geturl ()
+            # Click link
+            link = self.xpland [key]['link']
+            # try:
+            response = self.br.follow_link (text_regex=re.compile (link))
 
-  #       # Get Contents
-        contents = self.br.open (url)
-        self.parser.feed (contents.read ())
+            url = response.geturl ()
 
-  #       # Get urllist
-        urllist = self.parser.get_urllist ()
-        # print urllist
-        # return key
-        # print urllist
-        # print '*' * 5
-        self.request = settings.XPLAN_init ()
-        # print self.cookies
-        # print self.request.get_encoding (), 'self.request.get_encoding ()'
-        # print self.request.get_language (), 'self.request.get_language ()'
-        # print self.request.get_agent (), 'self.request.get_agent ()'
-        # print self.request.get_acformat (), 'self.request.get_acformat ()'
-        # print self.request_.get_url_ (key), 'self.request_.get_url_ (key)'
-        # print self.request.get_host (), 'self.request.get_host (key)'
-        # print '*' * 5
-        # sys.exit()
-        # break
-        for url in urllist:
-            # break
-            elem = url.split ('&')
+            # Get Contents
+            contents = self.br.open (url)
+            self.parser.feed (contents.read ())
 
-            idx = len (elem)
-            field = elem [idx - 1].split ('=') [1]
+            # Get urllist
+            urllist = self.parser.get_urllist ()
+            self.request = settings.XPLAN_init ()
+            # print urllist
+            for url in urllist:
 
-            char_set = string.ascii_uppercase + string.digits
-            filename = ''.join(random.sample(char_set*20, 20))
-            #filename += '.html'
-            # print self.request_.get_url_ (key)
-            # print self.request.get_encoding ()
-            if field == self.xpland [key]['field']:
-                p = subprocess.Popen (['curl', 'https://xplan.mlc.com.au' + url,
-                                       '-H', 'Accept-Encoding: ' + self.request.get_encoding (),
-                                       '-H', 'Accept-Language: ' + self.request.get_language (),
-                                       '-H', 'Upgrade-Insecure-Requests: 1',
-                                       '-H', 'User-Agent: ' + self.request.get_agent (),
-                                       '-H', 'Accept: ' + self.request.get_acformat (),
-                                       '-H', 'Referer: ' + self.request_.get_url_ (key),
-            #                            '-H', 'Referer: ' + self.request.get_url (key),
-                                       '-H', 'Cookie: ' + self.cookies,
-                                       '-H', 'Connection: keep-alive',
-                                       '-H', 'Cache-Control: max-age=0',
-                                       '-H', 'Host: ' + self.request.get_host (),
-                                       '--compressed',
-                                       '-o', filename],
-                                       stdout=subprocess.PIPE,
-                                       stderr=subprocess.PIPE)
-                out, err = p.communicate ()
-		try:
-                	p.kill ()
-		except OSError:
-			pass
-                contents = open (filename)
-                self.parser.feed (contents.read ())
-                contents.close ()
-                if os.path.isfile (filename):
-                    os.remove (filename)
-        # return self.parser.get_data ()
-        data = self.parser.get_data ()
-        for i in data.values():
-            update_json('test2.json', i)
+                elem = url.split ('&')
+
+                idx = len (elem)
+                field = elem [idx - 1].split ('=') [1]
+
+                char_set = string.ascii_uppercase + string.digits
+                filename = ''.join(random.sample(char_set*20, 20))
+
+                if field == self.xpland [key]['field']:
+                    p = subprocess.Popen (['curl', 'https://xplan.mlc.com.au' + url,
+                                               '-H', 'Accept-Encoding: ' + self.request.get_encoding (),
+                                               '-H', 'Accept-Language: ' + self.request.get_language (),
+                                               '-H', 'Upgrade-Insecure-Requests: 1',
+                                               '-H', 'User-Agent: ' + self.request.get_agent (),
+                                               '-H', 'Accept: ' + self.request.get_acformat (),
+                                               '-H', 'Referer: ' + self.request_.get_url_ (key),
+                    #                            '-H', 'Referer: ' + self.request.get_url (key),
+                                               '-H', 'Cookie: ' + self.cookies,
+                                               '-H', 'Connection: keep-alive',
+                                               '-H', 'Cache-Control: max-age=0',
+                                               '-H', 'Host: ' + self.request.get_host (),
+                                               '--compressed',
+                                               '-o', filename],
+                                               stdout=subprocess.PIPE,
+                                               stderr=subprocess.PIPE)
+                    out, err = p.communicate ()
+                    try:
+                        p.kill ()
+                    except OSError:
+                        pass
+                    contents = open (filename)
+                    self.parser.feed (contents.read ())
+                    contents.close ()
+                    if os.path.isfile (filename):
+                        os.remove (filename)
+            # # return self.parser.get_data ()
+            data = self.parser.get_data ()
+            if data:
+                data = data.values()
+                # print data
+                # jobs = [('test2.json', attr) for attr in data]
+                # print jobs
+                # count = multiprocessing.cpu_count()
+                # P = Pool(processes=count)
+                # # parameter = filename, attribute
+                # P.map(update_json2, job)
+                # # print data.values
+                for i in data:
+                    update_json('test2.json', i)
+                print data
+        except:
+            pass
     def go(self, list_):
-        # print jobs
-        pool = mp.ProcessingPool(4)  
-        # P = Pool(processes=4)
+
+        count = multiprocessing.cpu_count()
+        P = Pool(processes=count)
         # P.map(self.fetch, jobs)
         print pool.map(self.fetch, list_)
         
