@@ -59,7 +59,7 @@ P.map(update_sheet, jobs)
 
 remove_file(filename)
 
-# for userid in userids:
-# 	if userid:
-# 		os.popen('./client_partner_detailsV2.py ' + userid).read()
+for userid in userids:
+	if userid:
+		os.popen('./client_partner_detailsV2.py ' + userid).read()
 	
