@@ -12,10 +12,10 @@ import os
 userids = sys.argv[1]
 userids = re.findall("\d+", userids)
 
-username = 'ross.corry'
-password = 'QPP2015b'
-# username = 'cristeta.locara'
-# password = 'qppsoa2016'
+# username = 'ross.corry'
+# password = 'QPP2015b'
+username = 'cristeta.locara'
+password = 'qppsoa2016'
 config = [ 'expense',
 		'asset',
 		'liability',

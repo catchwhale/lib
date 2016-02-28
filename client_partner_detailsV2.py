@@ -322,8 +322,11 @@ def ret_c_p_details(parameter):
 userids = sys.argv[1]
 userids = re.findall("\d+", userids)
 
-uname = "ross.corry"
-password = 'QPP2015b'
+# uname = "ross.corry"
+# password = 'QPP2015b'
+
+uname = 'cristeta.locara'
+password = 'qppsoa2016'
 parameter = userids, uname, password
 init_json('test0.json')
 init_json('client_partner.json')
