@@ -14,8 +14,7 @@ import time
 import codecs
 import stat
 # os.chdir('/etc/lib/')
-from oauth2client.client import SignedJwtAssertionCredentials #sudo pip install python-gflags oauth2client
-# os.chdir(dir)
+from oauth2client.client import SignedJwtAssertionCredentials #
 # Remove file
 def remove_file(filename):
 	if os.path.exists(filename):

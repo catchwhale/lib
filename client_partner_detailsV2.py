@@ -16,7 +16,7 @@ import gspread
 
 dir = os.getcwd()
 dir = dir.strip()
-lib = '/etc/lib'
+lib = '/lib'
 
 # os.chdir('/etc/lib/')
 # import imp
