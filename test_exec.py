@@ -31,7 +31,7 @@ for userid in userids:
 		# engine = XPLANEngine (username=username,
 		# 	                      password=password)
 		# engine.run()
-		print '*' * 5, userid, '*'*5
+		print '*' * 15, userid, '*'*15
 		for x in config:
 			engine.fetch(x, userid)
 	# 	# jobs = [(x, userid) for x in config]	
@@ -41,18 +41,18 @@ for userid in userids:
 engine.logout()
 
 # count = multiprocessing.cpu_count()
-# P = Pool(processes=count)
+P = Pool(processes=8)
 
-# jobs = get_json_key_val('test2.json')
-# jobs = jobs[1]
-# key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
-# sheet = access_sheet(key)
+jobs = get_json_key_val('test2.json')
+jobs = jobs[1]
+key = "1M3qsO6IkPoVFBHYkqVgDlC18KQmeP9RaU3TbGuFEqk0"
+sheet = access_sheet(key)
 
-# filename = 'record'
-# create_file(filename)
+filename = 'record'
+create_file(filename)
 
-# jobs = [(sheet, worksheet) for worksheet in jobs]
-# P.map(update_sheet, jobs)
+jobs = [(sheet, worksheet) for worksheet in jobs]
+P.map(update_sheet, jobs)
 
-# remove_file(filename)
+remove_file(filename)
 	

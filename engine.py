@@ -181,8 +181,8 @@ class XPLANEngine ():
             pass
     def go(self, list_):
 
-        count = multiprocessing.cpu_count()
-        P = Pool(processes=count)
+        # count = multiprocessing.cpu_count()
+        P = Pool(processes=8)
         # P.map(self.fetch, jobs)
         print pool.map(self.fetch, list_)
         
